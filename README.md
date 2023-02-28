@@ -11,34 +11,30 @@
 | first_name         | string  | null: false               |
 | last_kana          | string  | null: false               |
 | first_kana         | string  | null: false               |
-| birth_year         | integer | null: false               |
-| birth_month        | integer | null: false               |
-| birth_day          | integer | null: false               |
+| birth_id           | date    | null: false               |
 
 ### Association
 
 - has_many :items
-- has_many :purchases
 
 
 ## items テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| name        | string     | null: false                    |
-| description | text       | null: false                    |
-| price       | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
-| category    | integer    | null: false                    |
-| condition   | integer    | null: false                    |
-| ship_fee    | integer    | null: false                    |
-| ship_day    | integer    | null: false                    |
-| prefecture  | integer    | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| description   | text       | null: false                    |
+| price         | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| category_id   | integer    | null: false                    |
+| condition_id  | integer    | null: false                    |
+| ship_fee_id   | integer    | null: false                    |
+| ship_day_id   | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchase
 - has_one :order
 
 
@@ -57,16 +53,16 @@
 
 ## orders テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| post_code   | string     | null: false                    |
-| city        | string     | null: false                    |
-| address     | string     | null: false                    |
-| building    | string     |                                |
-| phone_num   | string     | null: false                    |
-| item        | references | null: false, foreign_key: true |
-| prefecture  | integer    | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| post_code     | string     | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone_num     | string     | null: false                    |
+| purchase      | references | null: false, foreign_key: true |
+| prefecture_id | integer    | null: false                    |
 
 ### Association
 
-- belongs_to :item
+- belongs_to :purchase
