@@ -11,11 +11,12 @@
 | first_name         | string  | null: false               |
 | last_kana          | string  | null: false               |
 | first_kana         | string  | null: false               |
-| birth_id           | date    | null: false               |
+| birth              | date    | null: false               |
 
 ### Association
 
 - has_many :items
+- has_many :purchases
 
 
 ## items テーブル
@@ -35,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :purchase
 
 
 ## purchases テーブル
@@ -49,6 +50,7 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :order
 
 
 ## orders テーブル
